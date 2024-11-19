@@ -23,55 +23,57 @@ Follow these steps to set up the application:
 
 ### 1. Clone the repository
 
-```bash
+```
 git clone https://github.com/yourusername/employee-tracker.git
 cd employee-tracker
-
+```
 ## 2. Install dependencies
+
 Run the following command to install the necessary dependencies:
-
-bash
-Copy code
+```
 npm install
+```
+## 3. Set up PostgreSQL database
 
-3. Set up PostgreSQL database
 Ensure you have PostgreSQL installed on your machine. You can download and install it from PostgreSQL Official Site.
 
-4. Create the database and tables
-Open PostgreSQL CLI and create a new database:
+## 4. Create the database and tables
 
+Open PostgreSQL CLI and create a new database:
+```
 psql -U postgres
+
 CREATE DATABASE employee_tracker;
 
 Run the schema.sql file to create the necessary tables:
 
 psql -U postgres -d employee_tracker -f schema.sql
+```
 
 You can populate the database with initial data using the seeds.sql file (optional but useful for testing):
-bash
-
+```
 psql -U postgres -d employee_tracker -f seeds.sql
+```
+## 5. Configure the database connection
 
-5. Configure the database connection
 Make sure your database configuration in db.js matches your PostgreSQL setup (username, password, etc.).
-
+```
 const client = new Client({
   host: 'localhost',
   user: 'postgres',  // Change this to your PostgreSQL username
   password: '',      // Add your PostgreSQL password here
   database: 'employee_tracker'
 });
-
-Usage
+```
+## Usage
 Run the Application
 Once everything is set up, you can run the application with the following command:
-
-bash
+```
 node index.js
+```
+## Application Menu
 
-Application Menu
 You will be presented with a menu of actions:
-
 View All Departments: Displays a list of all departments.
 View All Roles: Displays a list of all roles and their associated departments.
 View All Employees: Displays a list of employees with their roles, departments, and managers.
@@ -80,24 +82,30 @@ Add a Role: Allows you to add a new role and assign it to a department.
 Add an Employee: Allows you to add a new employee and assign a role and manager.
 Update an Employee Role: Allows you to update an existing employee's role.
 
-Example Workflow
+## Example Workflow
+
 View All Departments: View a list of departments in the company.
 Add a Department: Add a new department to the company.
 Add a Role: Add a new role to an existing department.
 Add an Employee: Add a new employee with a role and manager.
 Update an Employee Role: Change the role of an employee.
-Features
+
+## Features
+
 Interactive command-line interface using Inquirer.
 Integration with PostgreSQL for data persistence.
 Ability to manage departments, roles, and employees efficiently.
 Flexible for adding and updating employee roles, departments, and job titles.
 
-Technologies Used
+## Technologies Used
+
 Node.js: JavaScript runtime used to build the application.
 PostgreSQL: Relational database used to store data for departments, roles, and employees.
 Inquirer: Command-line interface library used to prompt user input.
 pg: PostgreSQL client for Node.js to interact with the database.
-License
+
+## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
